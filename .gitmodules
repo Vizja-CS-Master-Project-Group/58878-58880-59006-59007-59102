@@ -1,9 +1,9 @@
 [submodule "backend"]
 	path = backend
-	url = https://github.com/Vizja-CS-Master-Project-Group/backend.git
+	url = https://github.com/Vizja-CS-Master-Project-Group/backend
 	branch = main
 
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/Vizja-CS-Master-Project-Group/frontend.git
+	url = https://github.com/Vizja-CS-Master-Project-Group/frontend
 	branch = main
