@@ -1,3 +1,4 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/Vizja-CS-Master-Project-Group/backend
+    branch = main
