@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - frontend
+      - backend
     ports:
       - "80:80"
 
@@ -14,24 +15,37 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    working_dir: /var/www/frontend
     tty: true
     ports:
       - "3000"
     expose:
       - 3000
 
-#  mysql:
-#    image: mysql:8.0
-#    volumes:
-#      - mysql-data:/var/lib/mysql
-#    ports:
-#      - ${MYSQL_PORT}:3306
-#    environment:
-#      - MYSQL_DATABASE=${MYSQL_DATABASE}
-#      - MYSQL_USER=${MYSQL_USER}
-#      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-#      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "9000:9000"
+    expose:
+      - "9000"
+
+  mysql:
+    image: bitnami/mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+#    healthcheck:
+#      test: bash -c "[ -f /bitnami/mysql/.mysql_initialized ]" && mysql -uMYSQL_USER -pMYSQL_PASSWORD MYSQL_DATABASE --silent --execute "SHOW TABLES;"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_BIND_ADDRESS=0.0.0.0
 
 #volumes:
 #  mysql-data:
