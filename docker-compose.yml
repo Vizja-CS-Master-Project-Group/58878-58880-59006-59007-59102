@@ -32,6 +32,8 @@ services:
       - "9000:9000"
     expose:
       - "9000"
+    volumes:
+      - /opt/backend:/var/www/html/storage/app/public/
 
   mysql:
     image: bitnami/mysql
