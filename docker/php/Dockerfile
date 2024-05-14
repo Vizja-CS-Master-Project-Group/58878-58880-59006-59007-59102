@@ -1,6 +1,6 @@
 FROM php:8.2-fpm
 
-RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
+RUN curl -s http://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 RUN apt-get update && apt-get install -y \
     git \
@@ -14,4 +14,8 @@ RUN apt-get update && apt-get install -y \
     nginx \
     build-essential \
     openssl \
-    docker-php-ext-install pdo_mysql mysqli mbstring zip
+    docker-php-ext-install \
+    pdo_mysql  \
+    mysqli  \
+    mbstring \
+    zip
