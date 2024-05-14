@@ -10,6 +10,8 @@ services:
       - backend
     ports:
       - "80:80"
+    volumes:
+      - /opt/backend:/var/www/storage
 
   frontend:
     build:
