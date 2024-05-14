@@ -1,7 +1,6 @@
 FROM node:18-alpine
 
-RUN apt-get update && apt-get install -y \
-    npm
+RUN apk update && apk add --no-cache bash
 
 COPY startup.sh /opt/startup.sh
 RUN chmod +x /opt/startup.sh
