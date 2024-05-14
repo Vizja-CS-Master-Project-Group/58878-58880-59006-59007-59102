@@ -26,6 +26,8 @@ services:
       context: backend
       dockerfile: Dockerfile
     tty: true
+    depends_on:
+      - mysql
     ports:
       - "9000:9000"
     expose:
@@ -35,7 +37,6 @@ services:
     image: bitnami/mysql
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./docker/mysql:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
 #    healthcheck:
