@@ -49,4 +49,4 @@ services:
 
 volumes:
   mysql-data:
-    external: true
+    external: false
