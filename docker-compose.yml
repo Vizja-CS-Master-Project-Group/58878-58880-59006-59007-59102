@@ -11,7 +11,7 @@ services:
       - node
     volumes:
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./src/server:/var/www/server
+      - ./src/backend:/var/www/backend
 
   php:
     build:
