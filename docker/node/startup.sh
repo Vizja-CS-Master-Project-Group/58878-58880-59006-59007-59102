@@ -2,6 +2,6 @@
 
 cd /var/www/frontend
 
-yarn
+npm i
 
-yarn dev
+npm run dev
