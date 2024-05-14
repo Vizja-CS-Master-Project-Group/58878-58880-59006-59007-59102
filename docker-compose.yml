@@ -47,6 +47,6 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_BIND_ADDRESS=0.0.0.0
 
-#volumes:
-#  mysql-data:
-#    external: true
+volumes:
+  mysql-data:
+    external: true
