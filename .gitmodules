@@ -2,8 +2,10 @@
 	path = backend
 	url = git@github.com:Vizja-CS-Master-Project-Group/backend.git
 	branch = main
+	recurse = true
 
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:Vizja-CS-Master-Project-Group/frontend.git
 	branch = main
+	recurse = true
